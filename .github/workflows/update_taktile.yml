@@ -21,7 +21,11 @@ jobs:
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
-          echo "${GITHUB_WORKSPACE}"
           pip3 install -r "${GITHUB_WORKSPACE}"/.github/workflows/taktile_github_integration/requirements.txt
-          echo "HELLO BRO"
-          echo "TEST_KEY: ${{ secrets.TEST_KEY }}"
+
+      - name: Update Taktile Code Nodes
+        env:
+          Taktile_API_KEY: ${{ secrets.TAKTILE_API_KEY }}
+          ORGANIZATION_NAME: "NB36"
+        run: |
+          python3 "${GITHUB_WORKSPACE}"/.github/workflows/taktile_github_integration/taktile_update_handler.py Taktile_API_KEY
