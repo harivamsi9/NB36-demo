@@ -25,8 +25,7 @@ jobs:
 
       - name: Update Taktile Code Nodes
         env:
-          Taktile_API_KEY: ${{ secrets.TAKTILE_API_KEY }}
-          TEST_KEY: ${{ secrets.TEST_KEY }}
           ORGANIZATION_NAME: "NB36"
+          Taktile_API_KEY: ${{ secrets.TAKTILE_API_KEY }}
         run: |
-          python3 "${GITHUB_WORKSPACE}"/.github/workflows/taktile_github_integration/taktile_update_handler.py "${TEST_KEY}" "${ORGANIZATION_NAME}"
+          python3 "${GITHUB_WORKSPACE}"/.github/workflows/taktile_github_integration/taktile_update_handler.py "${Taktile_API_KEY}" "${ORGANIZATION_NAME}"
