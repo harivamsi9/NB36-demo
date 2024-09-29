@@ -5,6 +5,13 @@ import json
 Taktile_API_KEY = sys.argv[1]
 ORGANIZATION_NAME = sys.argv[2]
 
+def auth_header(Taktile_API_KEY):
+    return {
+        'accept': 'application/json',
+        'Content-Type': 'application/json',
+        'X-Api-Key': f'{Taktile_API_KEY}'
+    }
+
 def get_raw_json(data):
     import json
     return json.dumps(data.json())
@@ -24,16 +31,27 @@ def api_not_ok_error(response):
     return 
     
 
-def extract_codeNode_details(res):
-    code_nodes = [
-        {
-            "node_name": node["node_name"],
-            "node_id": node["node_id"]
-        }
-        for node in res["data"]["graph"] if "node_type" in node and node["node_type"] == "code_node"
-    ]
+def extract_codeNode_and_update_srcCode(flow_id, res):
+    # code_nodes = [
+    #     {
+    #         "node_name": node["node_name"],
+    #         "node_id": node["node_id"]
+    #     }
+    #     for node in res["data"]["graph"] if "node_type" in node and node["node_type"] == "code_node"
+    # ]
+    for node in res["data"]["graph"]:
+        if "node_type" in node and node["node_type"] == "code_node":
+            # Found CODE_NODE
+            # UPDATE SRC CODE IF FILE EXISTS
+            print(f"flow_id: {flow_id}, Node Name: {node["node_name"]}, Node ID: {node['node_id']}")
+            
+
+
+
+
 
     return code_nodes
+
 
 
 if __name__  == "__main__":
@@ -42,11 +60,8 @@ if __name__  == "__main__":
     # ENDPOINT: Return a list of Decision Flows in a customer’s workspace
     url = 'https://eu-central-1.taktile-org.decide.taktile.com/run/api/v1/flows/list-decision-graphs/sandbox/decide'
 
-    headers = {
-        'accept': 'application/json',
-        'Content-Type': 'application/json',
-        'X-Api-Key': f'{Taktile_API_KEY}'
-    }
+    headers = auth_header(Taktile_API_KEY)
+    
 
     data = {
         "data": {
@@ -65,12 +80,11 @@ if __name__  == "__main__":
     response = requests.post(url, headers=headers, data=json.dumps(data))
 
     flow_ids = []
+
     if response.status_code == 200:
         print("Request was successful")
         flow_ids = getFlowIdListForOrganization(response.json())
-        print(f"Flow_IDs: { flow_ids }" )
     else:
-        ## ERROR EXIT ->
         api_not_ok_error(response)
 
 
@@ -82,11 +96,13 @@ if __name__  == "__main__":
 
         if response_2.status_code == 200:
             print(f"Request_2 for flow_id: {flow_id} was successful:")
-            print(response_2.json())
-            code_nodes = extract_codeNode_details(response_2.json())
+            code_nodes = extract_codeNode_and_update_srcCode(flow_id, response_2.json())
+
+
             # Print the extracted code nodes
-            for code_node in code_nodes:
-                print(f"Node Name: {code_node['node_name']}, Node ID: {code_node['node_id']}")
+            # for code_node in code_nodes:
+                # this is where update_src_code
+                # print(f"flow_id: {flow_id}, Node Name: {code_node['node_name']}, Node ID: {code_node['node_id']}")
 
         else:
             api_not_ok_error(response)
