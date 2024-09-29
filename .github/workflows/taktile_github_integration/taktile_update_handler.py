@@ -36,6 +36,7 @@ def file_exists(file_path):
     return os.path.isfile(file_path)
 
 def modify_codeNode_with_src_code(flow_id, node_id, src_code):
+    # PATCH patch-decision-graph/sandbox/decide
     headers = auth_header(Taktile_API_KEY)
     data = {
         "data": {
@@ -51,6 +52,7 @@ def modify_codeNode_with_src_code(flow_id, node_id, src_code):
             "execution_mode": "sync"
         }
     }
+    url = "https://eu-central-1.taktile-org.decide.taktile.com/run/api/v1/flows/patch-decision-graph/sandbox/decide"
 
     response_srcCode = requests.post(url, headers=headers, data=json.dumps(data))
     if response_srcCode.status_code == 200:
@@ -96,24 +98,11 @@ def extract_codeNode_and_update_srcCode(flow_id, res):
 
 
 
-
-
-
-
-
-
-
-
-    # return code_nodes
-
-
-
 if __name__  == "__main__":
     # ENDPOINT: Return a list of Decision Flows in a customer’s workspace
     url = 'https://eu-central-1.taktile-org.decide.taktile.com/run/api/v1/flows/list-decision-graphs/sandbox/decide'
 
     headers = auth_header(Taktile_API_KEY)
-    
     data = {
         "data": {
             "organization_name": f"{ORGANIZATION_NAME}"
