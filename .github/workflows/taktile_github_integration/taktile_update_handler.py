@@ -56,7 +56,9 @@ def modify_codeNode_with_src_code(flow_id, node_id, src_code):
 
     response_srcCode = requests.post(url, headers=headers, data=json.dumps(data))
     if response_srcCode.status_code == 200:
-        print(response_srcCode.json()["data"]["message"])
+        print(f"{flow_id}, {node_id}: " + response_srcCode.json()["data"]["message"])
+        print(get_raw_json(response_srcCode))
+        # print(f"SRC_CODE MODIFIED TO \n {response_srcCode.json()["data"]}")
         return response_srcCode.json()["data"]["message"]
     
     else: api_not_ok_error(response_srcCode)
@@ -82,9 +84,7 @@ def extract_codeNode_and_update_srcCode(flow_id, res):
             print(f'flow_id: {flow_id}, dirPath: {dir_path}, Node Name: { node["node_name"] }, Node ID: { node_id }')
 
             # UPDATE SRC CODE IF FILE EXISTS
-            print("CURR WORK DIR: ",os.getcwd())
             file_path = os.path.join(os.getcwd(), dir_path, node["node_name"] + '.py')
-            # file_path = os.path.join(dir_path, node["node_name"] + '.py')
             if file_exists(file_path):
                 src_code = ""
                 # modify the src_code in the code_node
