@@ -22,4 +22,4 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip
           pip3 install requests
-          echo "HELLO WORLD BRO secrets.TEST_KEY"
+          echo "HELLO WORLD BRO ${secrets.TEST_KEY}"
