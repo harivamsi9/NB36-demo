@@ -83,7 +83,7 @@ if __name__  == "__main__":
         if response_2.status_code == 200:
             print(f"Request_2 for flow_id: {flow_id} was successful:")
             print(response_2.json())
-            code_nodes = extract_codeNode_details(response_2)
+            code_nodes = extract_codeNode_details(response_2.json())
             # Print the extracted code nodes
             for code_node in code_nodes:
                 print(f"Node Name: {code_node['node_name']}, Node ID: {code_node['node_id']}")
