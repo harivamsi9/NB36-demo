@@ -44,7 +44,7 @@ def extract_codeNode_and_update_srcCode(flow_id, res):
         if "node_type" in node and node["node_type"] == "code_node":
             # Found CODE_NODE
             # UPDATE SRC CODE IF FILE EXISTS
-            print(f"flow_id: {flow_id}, Node Name: {node["node_name"]}, Node ID: {node['node_id']}")
+            print(f'flow_id: {flow_id}, Node Name: { node["node_name"] }, Node ID: { node["node_id"] }')
 
             # decision_flow_lookup = os.path.join(os.path.dirname(__file__), '..', "..", ",,", 'data.json')
 
