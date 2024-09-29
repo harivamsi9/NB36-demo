@@ -22,6 +22,6 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip
           echo "${GITHUB_WORKSPACE}"
-          pip3 install requests
+          pip3 install -r "${GITHUB_WORKSPACE}"/.github/workflows/taktile_github_integration/requirements.txt
           echo "HELLO BRO"
           echo "TEST_KEY: ${{ secrets.TEST_KEY }}"
