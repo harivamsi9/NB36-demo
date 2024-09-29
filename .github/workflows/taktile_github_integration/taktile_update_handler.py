@@ -1,6 +1,7 @@
 import sys
 import requests
 import json
+import os
 
 Taktile_API_KEY = sys.argv[1]
 ORGANIZATION_NAME = sys.argv[2]
@@ -44,7 +45,12 @@ def extract_codeNode_and_update_srcCode(flow_id, res):
             # Found CODE_NODE
             # UPDATE SRC CODE IF FILE EXISTS
             print(f"flow_id: {flow_id}, Node Name: {node["node_name"]}, Node ID: {node['node_id']}")
-            
+
+            # decision_flow_lookup = os.path.join(os.path.dirname(__file__), '..', "..", ",,", 'data.json')
+
+
+            # flow_dir = 
+
 
 
 
@@ -55,6 +61,8 @@ def extract_codeNode_and_update_srcCode(flow_id, res):
 
 
 if __name__  == "__main__":
+
+    print("OS CURR PATH:", os.path.dirname(__file__) )
 
     # Define the API endpoint and headers
     # ENDPOINT: Return a list of Decision Flows in a customer’s workspace
