@@ -23,4 +23,8 @@ jobs:
           python3 -m pip install --upgrade pip
           pip3 install requests
           echo "HELLO BRO"
-          "${{ secrets.TEST_KEY }}"
+          
+      - name: Debugging - Display Secret
+        run: |
+          echo "TEST_KEY: ${{ secrets.TEST_KEY }}"
+
