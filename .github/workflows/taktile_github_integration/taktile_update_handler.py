@@ -56,7 +56,7 @@ def extract_codeNode_and_update_srcCode(flow_id, res):
 
 
 
-    return code_nodes
+    # return code_nodes
 
 
 
@@ -104,7 +104,7 @@ if __name__  == "__main__":
 
         if response_2.status_code == 200:
             print(f"Request_2 for flow_id: {flow_id} was successful:")
-            code_nodes = extract_codeNode_and_update_srcCode(flow_id, response_2.json())
+            extract_codeNode_and_update_srcCode(flow_id, response_2.json())
 
 
             # Print the extracted code nodes
