@@ -64,7 +64,8 @@ def modify_codeNode_with_src_code(flow_id, node_id, src_code):
     
 
 def extract_codeNode_and_update_srcCode(flow_id, res):
-    decision_flow_file = os.path.join(os.path.dirname(__file__), '..', "..", ",,", 'decision_flow.json')
+
+    decision_flow_file = os.path.join(os.path.dirname(__file__), '..', "..", "..", 'decision_flow.json')
     decision_flow_file_obj = open(decision_flow_file, 'r')
     decision_flow_lookup = json.load(decision_flow_file_obj)["decision_flow_ids"]
 
