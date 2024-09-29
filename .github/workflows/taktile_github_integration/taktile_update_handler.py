@@ -58,7 +58,15 @@ def modify_codeNode_with_src_code(flow_id, node_id, src_code):
     if response_srcCode.status_code == 200:
         print(f"{flow_id}, {node_id}: " + response_srcCode.json()["data"]["message"])
         print(get_raw_json(response_srcCode))
-        # print(f"SRC_CODE MODIFIED TO \n {response_srcCode.json()["data"]}")
+        graph_list = response_srcCode.json()["data"]["graph"]
+        res_src_code = ""
+        for item in graph_list:
+            if node_id == item["node_id"]:
+                res_src_code = item["meta"]["src_code"]
+                break
+
+
+        print(f"SRC_CODE MODIFIED TO: \n {res_src_code} ")
         return response_srcCode.json()["data"]["message"]
     
     else: api_not_ok_error(response_srcCode)
