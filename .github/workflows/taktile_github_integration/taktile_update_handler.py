@@ -1,3 +1,3 @@
 print("inside taktile handler")
-import os
-print("OS taktile handler ARGS: ", os.args)
+import sys
+print("OS taktile handler ARGS: ", sys.argv)
