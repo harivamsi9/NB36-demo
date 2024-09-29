@@ -36,7 +36,7 @@ def file_exists(file_path):
     return os.path.isfile(file_path)
 
 def modify_codeNode_with_src_code(flow_id, node_id, src_code):
-    headers = auth_header()
+    headers = auth_header(Taktile_API_KEY)
     data = {
         "data": {
         "flow_id": f"{flow_id}",
