@@ -54,8 +54,8 @@ def modify_codeNode_with_src_code(flow_id, node_id, src_code):
 
     response_srcCode = requests.post(url, headers=headers, data=json.dumps(data))
     if response_srcCode.status_code == 200:
-        print(response_srcCode["data"]["message"])
-        return response_srcCode["data"]["message"]
+        print(response_srcCode.json()["data"]["message"])
+        return response_srcCode.json()["data"]["message"]
     
     else: api_not_ok_error(response_srcCode)
         
