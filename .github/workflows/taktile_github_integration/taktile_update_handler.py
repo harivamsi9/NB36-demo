@@ -24,6 +24,17 @@ def api_not_ok_error(response):
     return 
     
 
+def extract_codeNode_details(response_2):
+    code_nodes = [
+        {
+            "node_name": node["node_name"],
+            "node_id": node["node_id"]
+        }
+        for node in response_2["data"]["graph"] if node["node_type"] == "code_node"
+    ]
+
+    return code_nodes
+
 
 if __name__  == "__main__":
 
@@ -71,7 +82,11 @@ if __name__  == "__main__":
 
         if response_2.status_code == 200:
             print(f"Request_2 for flow_id: {flow_id} was successful:")
-            print(get_raw_json(response_2))
+            code_nodes = extract_codeNode_details(response_2)
+            # Print the extracted code nodes
+            for code_node in code_nodes:
+                print(f"Node Name: {code_node['node_name']}, Node ID: {code_node['node_id']}")
+
         else:
             api_not_ok_error(response)
 
