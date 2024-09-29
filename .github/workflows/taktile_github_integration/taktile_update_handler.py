@@ -56,8 +56,8 @@ def modify_codeNode_with_src_code(flow_id, node_id, src_code):
 
     response_srcCode = requests.post(url, headers=headers, data=json.dumps(data))
     if response_srcCode.status_code == 200:
+        print("patch-decision-graph API Call Success")
         print(f"{flow_id}, {node_id}: " + response_srcCode.json()["data"]["message"])
-        print(get_raw_json(response_srcCode))
         graph_list = response_srcCode.json()["data"]["graph"]
         res_src_code = ""
         for item in graph_list:
@@ -99,7 +99,7 @@ def extract_codeNode_and_update_srcCode(flow_id, res):
                 with open(file_path, 'r') as file:
                         src_code = file.read()
 
-                modify_codeNode_with_src_code(flow_id, node_id, src_code)
+                print(modify_codeNode_with_src_code(flow_id, node_id, src_code))
             else:
                 print(f'{file_path} does not exist')
 
@@ -130,24 +130,21 @@ if __name__  == "__main__":
     flow_ids = []
 
     if response.status_code == 200:
-        print("Request was successful")
+        print("list-decision-graphs API call was successful")
         flow_ids = getFlowIdListForOrganization(response.json())
     else:
         api_not_ok_error(response)
 
 
-    # get-decision-graph
+    
     for flow_id in flow_ids:
         data["data"] = { "flow_id": str(flow_id) }
+        # get-decision-graph API CALL
         url = 'https://eu-central-1.taktile-org.decide.taktile.com/run/api/v1/flows/get-decision-graph/sandbox/decide'
         response_2 = requests.post(url, headers=headers, data=json.dumps(data))
 
         if response_2.status_code == 200:
-            print(f"Request_2 for flow_id: {flow_id} was successful:")
+            print(f"get-decision-graph API Call for flow_id: {flow_id} was successful:")
             extract_codeNode_and_update_srcCode(flow_id, response_2.json())
         else:
             api_not_ok_error(response)
-
-
-
-
