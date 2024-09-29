@@ -1,6 +1,6 @@
 {
     "helper" : "Maps decision_flow_ids -> relative paths of decision_flow directories \n This is useful for updating correct Code_Nodes as code_base gets large",
     "decision_flow_ids":{
-        "06457ab1-3367-43c3-9e6b-4dbaa88d1b1b": "/credit-Underwriting"
+        "06457ab1-3367-43c3-9e6b-4dbaa88d1b1b": "credit-Underwriting"
     }
 }
