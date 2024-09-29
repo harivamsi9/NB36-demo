@@ -80,8 +80,8 @@ def extract_codeNode_and_update_srcCode(flow_id, res):
             print(f'flow_id: {flow_id}, dirPath: {dir_path}, Node Name: { node["node_name"] }, Node ID: { node_id }')
 
             # UPDATE SRC CODE IF FILE EXISTS
-            # file_path = os.path.join(os.getcwd(), dir_path, node["node_name"] + '.py')
-            file_path = os.path.join(dir_path, node["node_name"] + '.py')
+            file_path = os.path.join(os.getcwd(), dir_path, node["node_name"] + '.py')
+            # file_path = os.path.join(dir_path, node["node_name"] + '.py')
             if file_exists(file_path):
                 src_code = ""
                 # modify the src_code in the code_node
