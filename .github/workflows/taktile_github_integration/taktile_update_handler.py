@@ -57,7 +57,7 @@ def modify_codeNode_with_src_code(flow_id, node_id, src_code):
     response_srcCode = requests.post(url, headers=headers, data=json.dumps(data))
     if response_srcCode.status_code == 200:
         print("patch-decision-graph API Call Success")
-        print(f"{flow_id}, {node_id}: " + response_srcCode.json()["data"]["message"])
+        print(f"FlowID: {flow_id}, Node_id: {node_id} -> " + response_srcCode.json()["data"]["message"])
         graph_list = response_srcCode.json()["data"]["graph"]
         res_src_code = ""
         for item in graph_list:
@@ -66,8 +66,9 @@ def modify_codeNode_with_src_code(flow_id, node_id, src_code):
                 break
 
 
-        print(f"SRC_CODE MODIFIED TO: \n {res_src_code} ")
-        return response_srcCode.json()["data"]["message"]
+        print(f"Node_id: {node_id} SRC_CODE MODIFIED TO: \n {res_src_code} ")
+        print("*"*10)
+        # return response_srcCode.json()["data"]["message"]
     
     else: api_not_ok_error(response_srcCode)
         
@@ -99,7 +100,7 @@ def extract_codeNode_and_update_srcCode(flow_id, res):
                 with open(file_path, 'r') as file:
                         src_code = file.read()
 
-                print(modify_codeNode_with_src_code(flow_id, node_id, src_code))
+                modify_codeNode_with_src_code(flow_id, node_id, src_code)
             else:
                 print(f'{file_path} does not exist')
 
