@@ -3,16 +3,16 @@
 ## Repo Structure
 
 NB36-demo\ 
-├── credit-Underwriting\ 
-│   ├── Multiply.py\ 
-│   ├── Summarize.py\ 
-├── decision_flow.json\ 
-├── README.md\ 
-├── .github\ 
-│   ├── workflows\ 
+├── credit-Underwriting\
+│   ├── Multiply.py\
+│   ├── Summarize.py\
+├── decision_flow.json\
+├── README.md\
+├── .github\
+│   ├── workflows\
 │   │   ├── update_taktile.yml\
-│   ├── taktile_github_integration\ 
-│   │   ├── taktile_update_handler.py\ 
+│   ├── taktile_github_integration\
+│   │   ├── taktile_update_handler.py\
 │   │   ├── requirements.txt
 
 ## Customer Communication Docs
