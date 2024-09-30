@@ -4,10 +4,10 @@
 
 ```
 NB36-demo/
-├── credit-Underwriting/
+├── credit-Underwriting/ # NB36's credit-Underwriting policy Decision-Flow Codebase
 │   ├── Multiply.py
 │   ├── Summarize.py
-├── decision_flow.json
+├── decision_flow.json 
 ├── README.md
 ├── .github/
 │   ├── workflows/
