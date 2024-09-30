@@ -3,9 +3,9 @@
 ## Repo Structure
 
 NB36-demo
- |-credit-Underwriting
- | |-Multiply.py
- | |-Summarize.py
+ |-credit-Underwriting\
+ | |-Multiply.py\
+ | |-Summarize.py\
  |-decision_flow.json
  |-README.md
  |-.github
