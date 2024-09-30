@@ -12,7 +12,9 @@ Link: https://app.eraser.io/workspace/vlsKlvMxvDpaa5rEbeee?origin=share
 ### Existing
 
 ### Modification
-- Added `.github/workflows/update_taktile.yml` workflow file  -> Responsible for automating the process of updating Taktile Code Nodes upon each merge to the main branch by triggering the relevant Taktile API calls.
+- Added `.github/workflows/update_taktile.yml` workflow file  -> Responsible for automating the process of updating Taktile Code Nodes upon each merge to the main branch by triggering the relevant Taktile API calls file i.e. taktile_update_handler.py
+- Added `.github/workflows/taktile_github_integration/taktile_update_handler.py` file  -> Responsible for Handling backend Taktile API calls for updating Taktile Code Nodes
+- `Taktile_API_KEY` is a unique private key, and must be protected and not revealed to public -> Used Github Actions Secrets to securely use this. [Learn more](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions) 
 
  
 
