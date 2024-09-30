@@ -1,7 +1,7 @@
 # NB36-demo
 
 ## Repo Structure
-
+`
 NB36-demo\
  |-credit-Underwriting\
  | |-Multiply.py\
@@ -14,7 +14,7 @@ NB36-demo\
  | | |-taktile_github_integration\
  | | | |-taktile_update_handler.py\
  | | | |-requirements.txt\
-
+`
 ## Customer Communication Docs
 https://docs.google.com/document/d/1FhXzqi17IqoIgh82L0lT6bo2ZL6_vUboJXRTWqpY33U/edit?usp=sharing
 
