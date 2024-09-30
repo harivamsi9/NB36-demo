@@ -1,6 +1,6 @@
 # NB36-demo
 
-## Docs
+## Customer Communication
 https://docs.google.com/document/d/1FhXzqi17IqoIgh82L0lT6bo2ZL6_vUboJXRTWqpY33U/edit?usp=sharing
 
 ## High Level Design
