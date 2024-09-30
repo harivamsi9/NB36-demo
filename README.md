@@ -12,7 +12,7 @@ Link: https://app.eraser.io/workspace/vlsKlvMxvDpaa5rEbeee?origin=share
 ### Existing
 
 ### Modification
-- Added `.github/workflows/update_taktile.yml` workflow file \ -> Responsible for automating the process of updating Taktile Code Nodes upon each merge to the main branch by triggering the relevant Taktile API calls.
+- Added `.github/workflows/update_taktile.yml` workflow file  -> Responsible for automating the process of updating Taktile Code Nodes upon each merge to the main branch by triggering the relevant Taktile API calls.
 
  
 
@@ -20,6 +20,6 @@ Link: https://app.eraser.io/workspace/vlsKlvMxvDpaa5rEbeee?origin=share
 ## Sanity Testing
 testing update 1: updating directing the main branch ✅ \
 testing update 2: creating new feature branch (from local) and trying to merge to main later ✅ \
-testing update 3: created taktile_github integration \
+testing update 3: created taktile_github integration 
 
 
