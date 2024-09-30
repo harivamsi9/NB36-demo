@@ -2,6 +2,29 @@
 
 ## Repo Structure
 
+
+
+## Customer Communication Docs
+https://docs.google.com/document/d/1FhXzqi17IqoIgh82L0lT6bo2ZL6_vUboJXRTWqpY33U/edit?usp=sharing
+
+## High Level Design
+Link: https://app.eraser.io/workspace/vlsKlvMxvDpaa5rEbeee?origin=share
+<img width="1152" alt="image" src="https://github.com/user-attachments/assets/986dcdd1-c569-40c8-8b29-a61c289df5b8">
+
+
+
+## Technological Details
+
+### Existing
+```
+NB36-demo/
+├── credit-Underwriting/ # NB36's credit-Underwriting policy Decision-Flow Codebase
+│   ├── Multiply.py
+│   ├── Summarize.py
+├── README.md
+```
+
+### Modification
 ```
 NB36-demo/
 ├── credit-Underwriting/ # NB36's credit-Underwriting policy Decision-Flow Codebase
@@ -17,20 +40,6 @@ NB36-demo/
 │   │   ├── requirements.txt
 ```
 
-## Customer Communication Docs
-https://docs.google.com/document/d/1FhXzqi17IqoIgh82L0lT6bo2ZL6_vUboJXRTWqpY33U/edit?usp=sharing
-
-## High Level Design
-Link: https://app.eraser.io/workspace/vlsKlvMxvDpaa5rEbeee?origin=share
-<img width="1152" alt="image" src="https://github.com/user-attachments/assets/986dcdd1-c569-40c8-8b29-a61c289df5b8">
-
-
-
-## Technological Details
-
-### Existing
-
-### Modification
 - Added `.github/workflows/update_taktile.yml` workflow file
    - -> Responsible for automating the process of updating Taktile Code Nodes upon each merge to the main branch by triggering the relevant Taktile API calls file i.e. taktile_update_handler.py
 - Added `.github/workflows/taktile_github_integration/taktile_update_handler.py` file
