@@ -47,6 +47,6 @@ https://docs.google.com/document/d/1FhXzqi17IqoIgh82L0lT6bo2ZL6_vUboJXRTWqpY33U/
 ## Sanity Testing
 testing update 1: updating directing the main branch ✅ \
 testing update 2: creating new feature branch (from local) and trying to merge to main later ✅ \
-testing update 3: created taktile_github integration 
+testing update 3: created taktile_github integration  
 
 
